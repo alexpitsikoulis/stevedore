@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package runner;
+
+service Runner {
+    rpc StartJob(StartJobRequest) returns (StartJobResponse);
+    rpc StopJob(StopJobRequest) returns (StopJobResponse);
+    rpc QueryJob(QueryJobRequest) returns (QueryJobResponse);
+    rpc StreamJob(StreamJobRequest) returns (StreamJobResponse);
+}
+
+message StartJobRequest {
+    string name = 1;
+    repeated string args = 2;
+}
+
+message StartJobResponse {
+    string jobID = 1;
+}
+
+message StopJobRequest {
+    string jobID = 1;
+    string ownerID = 2;
+    bool gracefully = 3;
+}
+
+message StopJobResponse {}
+
+message QueryJobRequest {
+    string jobID = 1;
+    string ownerID = 2;
+}
+
+message QueryJobResponse {
+    string status = 1;
+    optional int32 pid = 2;
+    optional int32 exitCode = 3;
+}
+
+message StreamJobRequest {
+    string jobID = 1;
+    string ownerID = 2;
+}
+
+message StreamJobResponse {
+    bytes output = 1;
+}
