@@ -6,7 +6,7 @@ service Runner {
     rpc StartJob(StartJobRequest) returns (StartJobResponse);
     rpc StopJob(StopJobRequest) returns (StopJobResponse);
     rpc QueryJob(QueryJobRequest) returns (QueryJobResponse);
-    rpc StreamJob(StreamJobRequest) returns (StreamJobResponse);
+    rpc StreamJob(StreamJobRequest) returns (stream StreamJobResponse);
 }
 
 message StartJobRequest {
@@ -33,7 +33,7 @@ message QueryJobRequest {
 
 message QueryJobResponse {
     string status = 1;
-    optional int32 pid = 2;
+    uint32 pid = 2;
     optional int32 exitCode = 3;
 }
 
