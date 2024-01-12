@@ -1,4 +1,5 @@
 extern crate iron_exec;
+mod auth;
 mod api;
 
 use api::{JobRunner, RunnerServer};

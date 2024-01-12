@@ -13,6 +13,7 @@ crossbeam = "0.8.2"
 threadpool = "1.8.1"
 futures = "0.3.30"
 async-stream = "0.3.5"
+openssl = "0.10.62"
 
 [build-dependencies]
 tonic-build = "0.10.2"
