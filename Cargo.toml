@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 iron_exec = { path = "../iron-exec" }
-tonic = "0.10.2"
+tonic = { version = "0.10.2", features = ["tls"] }
 prost = "0.12.3"
 tokio = { version = "1", features = ["full"] }
 uuid = { version = "1.6.1", features = ["v4"] }
@@ -14,6 +14,12 @@ threadpool = "1.8.1"
 futures = "0.3.30"
 async-stream = "0.3.5"
 openssl = "0.10.62"
+chrono = "0.4.31"
+secrecy = "0.8.0"
+rustls = "0.22.2"
+tokio-rustls = "0.25.0"
+rustls-native-certs = "0.7.0"
+async-trait = "0.1.77"
 
 [build-dependencies]
 tonic-build = "0.10.2"
